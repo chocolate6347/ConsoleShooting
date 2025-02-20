@@ -1,0 +1,7 @@
+﻿  Enemy.cpp
+C:\Users\User\Desktop\새 폴더\ConsoleShooting-main\Enemy.cpp(22,3): error C2660: 'EnemyCreate': 함수는 2개의 인수를 사용하지 않습니다.
+  C:\Users\User\Desktop\새 폴더\ConsoleShooting-main\enemy.h(18,6):
+  'EnemyCreate' 선언을 참조하십시오.
+  C:\Users\User\Desktop\새 폴더\ConsoleShooting-main\Enemy.cpp(22,3):
+  인수 목록 '(int, int)'을(를) 일치시키는 동안
+  
