@@ -18,3 +18,4 @@
 
 #define D_BULLET_MAX 50
 #define D_Enemy_MAX 50
+#define D_EFFECT_MAX 50

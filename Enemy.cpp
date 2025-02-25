@@ -1,6 +1,7 @@
 #include "include.h"
 
 Enemy enemy[D_Enemy_MAX];
+DWORD createEnemyTime;
 
 void EnemyInit()
 {
@@ -8,7 +9,7 @@ void EnemyInit()
 		enemy[i].bColor = BLACK;
 		enemy[i].fColor = RED;
 		enemy[i].x = rand() % 119;
-		enemy[i].y = 29;
+		enemy[i].y = 0;
 		enemy[i].body = 'O';
 		enemy[i].isAlive = false;
 	}
@@ -16,10 +17,14 @@ void EnemyInit()
 
 void EnemyUpdate()
 {
+	if (GetTickCount() > createEnemyTime) {
+		createEnemyTime = GetTickCount() + 500;
+
+		EnemyCreate(rand() % 120, -1);
+	}
+
 	 EnemyMove();
 	 EnemyClipping();
-
-	 EnemyCreate(rand() % 119, 29);
 }
 
 void EnemyDraw()
@@ -61,6 +66,25 @@ void EnemyCreate(int x, int y)
 			enemy[i].y = y;
 			enemy[i].isAlive = true;
 			break;
+		}
+	}
+}
+
+void Bullet_Enemy_Collision()
+{
+	for (int i = 0; i < D_BULLET_MAX; i++) {
+		if (bullet[i].isAlive) {
+			for (int j = 0; j < D_Enemy_MAX; j++) {
+				if (enemy[j].isAlive &&
+					bullet[i].x == enemy[j].x &&
+					(bullet[i].y == enemy[j].y || bullet[i].y - 1 == enemy[j].y))
+				{
+					bullet[i].isAlive = false;
+					enemy[j].isAlive = false;
+					CreateEffect(enemy[j].x, enemy[j].y);
+					break;
+				}
+			}
 		}
 	}
 }

@@ -35,7 +35,7 @@ void BulletMove()
 	for (int i = 0; i < D_BULLET_MAX; i++) {
 		if (bullet[i].isAlive) {
 			bullet[i].y--;
-			if (bullet[i].y == 0) {
+			if (bullet[i].y == -1) {
 				bullet[i].isAlive = false;
 			}
 		}
@@ -60,5 +60,11 @@ void BulletCreate(int x, int y) {
 			bullet[i].isAlive = true;  // ÃÑ¾Ë ¹ß»ç
 			break;
 		}
+	}
+}
+void Bullet_Location() {
+	for (int i = 0; i < D_BULLET_MAX; i++) {
+		int Bullet_X = bullet[i].x;
+		int Bullet_Y = bullet[i].y;
 	}
 }

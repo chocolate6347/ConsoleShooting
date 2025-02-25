@@ -18,12 +18,15 @@ void Init()
 	PlayerInit();
 	BulletInit();
 	EnemyInit();
+	EffectInit();
 }
 void Update()
 {
 	PlayerUpdate();
 	BulletUpdate();
 	EnemyUpdate();
+	EffectUpdate();
+	Bullet_Enemy_Collision();
 }
 void Draw()
 {
@@ -31,6 +34,7 @@ void Draw()
 	PlayerDraw();
 	BulletDraw();
 	EnemyDraw();
+	EffectDraw();
 	Flip();			// 화면 전환
 }
 void Release()

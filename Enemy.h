@@ -15,6 +15,7 @@ void EnemyDraw();
 
 void EnemyMove();
 void EnemyClipping();
-void EnemyCreate();
+void EnemyCreate(int x, int y);
+void Bullet_Enemy_Collision();
 
-extern Enemy enem[D_BULLET_MAX];
+extern Enemy enemy[D_Enemy_MAX];
